@@ -1,0 +1,12 @@
+version: '3.7'
+
+
+services:
+  api-health:
+    build: .
+    image: eu.gcr.io/test-project-simple-api/api-invoker
+    ports:
+      - 8082:8080
+    environment:
+      - LOG_LEVEL=Info
+    restart : on-failure
