@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /files/src
 
-COPY *.csproj .
+WORKDIR /files/src
+COPY files/src/*.csproj .
 RUN dotnet restore
 
-COPY . .
+COPY files/src/* ./
 RUN dotnet publish -c release -o /app --no-restore
 
 
